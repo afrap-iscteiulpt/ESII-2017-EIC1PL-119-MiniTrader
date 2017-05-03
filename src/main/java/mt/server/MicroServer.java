@@ -1,5 +1,7 @@
 package mt.server;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -12,6 +14,18 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 
 import mt.Order;
 import mt.comm.ServerComm;
@@ -219,9 +233,14 @@ public class MicroServer implements MicroTraderServer {
 
 		Order o = msg.getOrder();
 		
+		inputXML(o);
+		
 		// save the order on map
 		saveOrder(o);
 
+		
+
+		
 		// if is buy order
 		if (o.isBuyOrder()) {
 			processBuy(msg.getOrder());
@@ -243,6 +262,66 @@ public class MicroServer implements MicroTraderServer {
 
 	}
 	
+	private void inputXML(Order o) {
+		
+		String nickname = o.getNickname();
+		
+		StringBuilder builder = new StringBuilder();
+		builder.append("");
+		builder.append(o.getNumberOfUnits());
+		String numberofunits = builder.toString();
+		
+		StringBuilder builder2 = new StringBuilder();
+		builder2.append("");
+		builder2.append(o.getNumberOfUnits());
+		String priceperunit = builder2.toString();
+		
+		StringBuilder builder3 = new StringBuilder();
+		builder3.append("");
+		builder3.append(o.getNumberOfUnits());
+		String serverorderid = builder3.toString();
+		
+		String stock = o.getStock();
+		
+		
+
+		
+		try {	
+        File inputFile = new File("MicroTraderPersistence.xml");
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+		Document doc = dBuilder.parse(inputFile);
+
+         // Create new element Order with attributes
+         Element newElementOrder = doc.createElement("Order");
+         newElementOrder.setAttribute("Nickname", nickname);
+         newElementOrder.setAttribute("NumberOfUnits", numberofunits);
+         newElementOrder.setAttribute("PricePerUnit", priceperunit);
+         newElementOrder.setAttribute("ServerOrderID", serverorderid);
+         newElementOrder.setAttribute("Stock", stock);
+         
+         
+         
+		 // Add new node to XML document root element
+         System.out.println("----- Adding new element to root element -----");
+         System.out.println("Root element :" + doc.getDocumentElement().getNodeName());         
+         System.out.println("Add Order Id='5' Type='Buy' Stock='PT' Units='15' Price='20'");
+         Node n = doc.getDocumentElement();
+         n.appendChild(newElementOrder);
+         // Save XML document
+         System.out.println("Save XML document.");
+         Transformer transformer = TransformerFactory.newInstance().newTransformer();
+         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+         StreamResult result = new StreamResult(new FileOutputStream("MicroTraderPersistence.xml"));
+         DOMSource source = new DOMSource(doc);
+         transformer.transform(source, result);
+
+		} catch (Exception e) { e.printStackTrace(); }
+		
+		System.out.println("estou aqui!");
+		
+	}
+
 	/**
 	 * Store the order on map
 	 * 
