@@ -233,7 +233,7 @@ public class MicroServer implements MicroTraderServer {
 
 		Order o = msg.getOrder();
 		
-		inputXML(o);
+		
 		
 		// save the order on map
 		saveOrder(o);
@@ -244,11 +244,13 @@ public class MicroServer implements MicroTraderServer {
 		// if is buy order
 		if (o.isBuyOrder()) {
 			processBuy(msg.getOrder());
+			inputXML(o);
 		}
 		
 		// if is sell order
 		if (o.isSellOrder()) {
 			processSell(msg.getOrder());
+			inputXML(o);
 		}
 
 		// notify clients of changed order
