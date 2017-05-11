@@ -305,14 +305,13 @@ public class MicroServer implements MicroTraderServer {
 		 // Add new node to XML document root element
          System.out.println("----- Adding new element to root element -----");
          System.out.println("Root element :" + doc.getDocumentElement().getNodeName());         
-         System.out.println("Add Order Id='5' Type='Buy' Stock='PT' Units='15' Price='20'");
          Node n = doc.getDocumentElement();
          n.appendChild(newElementOrder);
          // Save XML document
          System.out.println("Save XML document.");
          Transformer transformer = TransformerFactory.newInstance().newTransformer();
          transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-         StreamResult result = new StreamResult(new FileOutputStream("MicroTraderPersistence.xml"));
+         StreamResult result = new StreamResult(new FileOutputStream("US_Transactions.xml"));
          DOMSource source = new DOMSource(doc);
          transformer.transform(source, result);
 
