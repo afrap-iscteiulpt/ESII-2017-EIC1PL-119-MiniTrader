@@ -266,8 +266,6 @@ public class MicroServer implements MicroTraderServer {
 	
 	private void inputXML(Order o) {
 		
-		String nickname = o.getNickname();
-		
 		StringBuilder builder = new StringBuilder();
 		builder.append("");
 		builder.append(o.getNumberOfUnits());
