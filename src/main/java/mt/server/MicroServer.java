@@ -294,7 +294,6 @@ public class MicroServer implements MicroTraderServer {
 
          // Create new element Order with attributes
          Element newElementOrder = doc.createElement("Order");
-         
          newElementOrder.setAttribute("NumberOfUnits", numberofunits);
          newElementOrder.setAttribute("PricePerUnit", priceperunit);
          newElementOrder.setAttribute("ServerOrderID", serverorderid);
