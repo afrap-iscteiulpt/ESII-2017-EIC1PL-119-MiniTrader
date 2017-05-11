@@ -287,7 +287,7 @@ public class MicroServer implements MicroTraderServer {
 
 		
 		try {	
-        File inputFile = new File("MicroTraderPersistence.xml");
+        File inputFile = new File("US_Transactions.xml");
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		Document doc = dBuilder.parse(inputFile);
