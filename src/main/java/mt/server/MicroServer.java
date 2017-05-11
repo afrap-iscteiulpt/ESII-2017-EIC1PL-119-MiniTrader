@@ -233,22 +233,19 @@ public class MicroServer implements MicroTraderServer {
 
 		Order o = msg.getOrder();
 		
-		inputXML(o);
-		
 		// save the order on map
 		saveOrder(o);
-
-		
-
 		
 		// if is buy order
 		if (o.isBuyOrder()) {
 			processBuy(msg.getOrder());
+			inputXML(o);
 		}
 		
 		// if is sell order
 		if (o.isSellOrder()) {
 			processSell(msg.getOrder());
+			inputXML(o);
 		}
 
 		// notify clients of changed order
@@ -287,7 +284,7 @@ public class MicroServer implements MicroTraderServer {
 
 		
 		try {	
-        File inputFile = new File("MicroTraderPersistence.xml");
+        File inputFile = new File("AS_Transactions.xml");
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		Document doc = dBuilder.parse(inputFile);
@@ -299,26 +296,23 @@ public class MicroServer implements MicroTraderServer {
          newElementOrder.setAttribute("PricePerUnit", priceperunit);
          newElementOrder.setAttribute("ServerOrderID", serverorderid);
          newElementOrder.setAttribute("Stock", stock);
-         
-         
+
          
 		 // Add new node to XML document root element
          System.out.println("----- Adding new element to root element -----");
          System.out.println("Root element :" + doc.getDocumentElement().getNodeName());         
-         System.out.println("Add Order Id='5' Type='Buy' Stock='PT' Units='15' Price='20'");
          Node n = doc.getDocumentElement();
          n.appendChild(newElementOrder);
          // Save XML document
          System.out.println("Save XML document.");
          Transformer transformer = TransformerFactory.newInstance().newTransformer();
          transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-         StreamResult result = new StreamResult(new FileOutputStream("MicroTraderPersistence.xml"));
+         StreamResult result = new StreamResult(new FileOutputStream("AS_Transactions.xml"));
          DOMSource source = new DOMSource(doc);
          transformer.transform(source, result);
 
 		} catch (Exception e) { e.printStackTrace(); }
 		
-		System.out.println("estou aqui!");
 		
 	}
 
