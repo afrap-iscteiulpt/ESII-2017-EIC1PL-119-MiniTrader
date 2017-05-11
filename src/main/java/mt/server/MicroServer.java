@@ -317,8 +317,6 @@ public class MicroServer implements MicroTraderServer {
 
 		} catch (Exception e) { e.printStackTrace(); }
 		
-		System.out.println("estou aqui!");
-		
 	}
 
 	/**
