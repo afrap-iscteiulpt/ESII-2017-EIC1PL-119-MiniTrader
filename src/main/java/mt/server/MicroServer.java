@@ -264,6 +264,14 @@ public class MicroServer implements MicroTraderServer {
 
 	}
 	
+	/**
+	 * Process to write on the xml file all the orders
+	 * 
+	 * @param o 
+	 *            the order to be written in the xml file
+	 */
+
+	
 	private void inputXML(Order o) {
 		
 		StringBuilder builder = new StringBuilder();
