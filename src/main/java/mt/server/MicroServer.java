@@ -280,12 +280,12 @@ public class MicroServer implements MicroTraderServer {
 		
 		StringBuilder builder2 = new StringBuilder();
 		builder2.append("");
-		builder2.append(o.getNumberOfUnits());
+		builder2.append(o.getPricePerUnit());
 		String priceperunit = builder2.toString();
 		
 		StringBuilder builder3 = new StringBuilder();
 		builder3.append("");
-		builder3.append(o.getNumberOfUnits());
+		builder3.append(o.getServerOrderID());
 		String serverorderid = builder3.toString();
 		
 		String stock = o.getStock();
