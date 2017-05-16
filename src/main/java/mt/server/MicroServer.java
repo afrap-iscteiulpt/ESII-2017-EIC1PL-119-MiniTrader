@@ -266,8 +266,6 @@ public class MicroServer implements MicroTraderServer {
 	 * @param o 
 	 *            the order to be written in the xml file
 	 */
-
-
 	
 	private void inputXML(Order o) {
 		
