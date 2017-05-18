@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <XML>	
 
+<Order Nickname="Maria" NumberOfUnits="5" PricePerUnit="1.0" ServerOrderID="1" Stock="BP"/>
+<Order Nickname="Maria" NumberOfUnits="15" PricePerUnit="1.0" ServerOrderID="2" Stock="EDP"/>
+<Order Nickname="Maria" NumberOfUnits="25" PricePerUnit="1.0" ServerOrderID="3" Stock="PT"/>
+<Order Nickname="Maria" NumberOfUnits="35" PricePerUnit="1.0" ServerOrderID="4" Stock="ABB"/>
+<Order Nickname="Maria" NumberOfUnits="45" PricePerUnit="1.0" ServerOrderID="5" Stock="CP"/>
+<Order Nickname="Maria" NumberOfUnits="55" PricePerUnit="1.0" ServerOrderID="6" Stock="REN"/>
+<Order Nickname="Maria" NumberOfUnits="65" PricePerUnit="1.0" ServerOrderID="7" Stock="ATT"/>
+<Order Nickname="Maria" NumberOfUnits="15" PricePerUnit="1.0" ServerOrderID="8" Stock="EDP"/>
+<Order Nickname="Manuel" NumberOfUnits="0" PricePerUnit="1.0" ServerOrderID="9" Stock="EDP"/>
 </XML>
