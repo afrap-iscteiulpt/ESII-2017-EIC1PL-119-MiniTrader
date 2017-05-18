@@ -6,6 +6,7 @@ https://youtu.be/oFa3gsDSqQQ
 
 Segunda fase do Projecto:
 https://youtu.be/9X0BUEPMyuU
+https://www.youtube.com/watch?v=9X0BUEPMyuU&feature=youtu.be
 
 Projecto encontra-se completo.
 
