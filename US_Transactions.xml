@@ -10,5 +10,4 @@
 <Order NumberOfUnits="65" PricePerUnit="1.0" ServerOrderID="7" Stock="ATT"/>
 <Order NumberOfUnits="15" PricePerUnit="1.0" ServerOrderID="8" Stock="EDP"/>
 <Order NumberOfUnits="0" PricePerUnit="1.0" ServerOrderID="9" Stock="EDP"/>
-<Order NumberOfUnits="0" PricePerUnit="1.0" ServerOrderID="10" Stock="EDP"/>
 </XML>
